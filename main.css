@@ -1,0 +1,152 @@
+/* ==UserStyle==
+@name           tk themes
+@namespace      github.com/openstyles/stylus
+@version        1.0.0
+@description    TURN OFF AMBIENT MODE. dark mode is now purple, light mode is now pastel.
+@author         @tonydsoy
+==/UserStyle== */
+
+@-moz-document domain("www.youtube.com") {
+  ytd-watch-flexy #cinematics {
+    display: none !important;
+  }
+  ytd-watch-flexy #background {
+    background: #000 !important;
+  }
+  ytd-watch-flexy #player-theater-container::before {
+    content: none !important;
+    display: none !important;
+  }
+  ytd-watch-flexy #movie_player::after {
+    display: none !important;
+    background: none !important;
+    box-shadow: none !important;
+  }
+    
+  ytd-reel-video-renderer #player-container-background,
+  ytd-reel-video-renderer #shorts-player > .player-container::before,
+  ytd-reel-video-renderer #shorts-player > .player-container::after {
+    display: none !important;
+    background: none !important;
+    filter: none !important;
+  }
+
+  
+  ytd-reel-video-renderer .reel-player-blur-background,
+  ytd-reel-video-renderer .blurred-background-image {
+    display: none !important;
+  }
+    
+
+    html {
+    --tonycolor: #B192EB;
+    --deepblue: #ECC4EC;
+    --deepblue2:#B898EB;
+
+    background: linear-gradient(to bottom, var(--tonycolor), var(--deepblue));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+
+    --yt-spec-base-background: transparent;
+    --yt-frosted-glass-desktop: transparent;
+    --yt-spec-text-primary-inverse: transparent !important;
+    --yt-spec-text-primary: transparent;
+  }
+
+    .ytd-app {
+      background: transparent;
+    }
+    
+    .ytd-masthead {
+      background: #B596EB;
+    }
+    
+    .ytSearchboxComponentHost {
+        background:transparent !important;
+    }
+    ytd-simple-menu-header-renderer.style-scope.ytd-multi-page-menu-renderer {
+        background: transparent;
+    }
+    .ytSearchboxComponentSuggestionsContainer {
+        background:transparent;
+        backdrop-filter: blur(7px);
+    }
+    
+    html[dark],
+    [dark] {
+        --tonycolor: #1a0221;
+        --deepblue: #000428;
+        --deepblue2:#170222;
+
+        background: linear-gradient(to bottom, var(--tonycolor), var(--deepblue));
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+
+        --yt-spec-base-background: transparent;
+        --yt-frosted-glass-desktop: transparent;
+        --yt-spec-text-primary-inverse: transparent;
+    }
+
+
+    /* yes i know this is a bullshit fix but like, I couldn't find a better way at the short notice of "i want to watch youtube" */
+    @keyframes scrollytony {
+        from {background: transparent}
+        to {background:var(deepblue2)}
+    }
+    .style-scope.tp-yt-app-header {
+        background: linear-gradient(to bottom, var(--tonycolor), var(--deepblue2));
+        background-attachment: fixed !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        animation: scrollytony 5s linear;
+        animation-timeline: scroll(root block);
+        animation-fill-mode: both;
+    }
+    div#contentContainer.style-scope.tp-yt-app-drawer {
+        background: linear-gradient(to bottom, var(--tonycolor), var(--deepblue));
+    }
+    
+    .ytd-app[dark] {
+        background: transparent !important;
+    }
+    /* #1a0221  */
+    html[dark] .ytd-masthead {
+    background: #1a0221 !important;
+    }
+    
+    html:not([dark]) .ytd-masthead {
+    background: #B696EB !important;
+    }
+    .guide-renderer {
+        background: #000;
+    }
+    .guide-content {
+        background: #000;
+    }
+    
+}
+
+@-moz-document url-prefix("https://www.youtube.com/shorts") {
+    /* Light mode */
+    :root:not([dark]) .ytd-channel-name {
+        color: #000000 !important;
+    }
+
+    /* Dark mode */
+    :root[dark] .ytd-channel-name {
+        color: #ffffff !important;
+    }
+}
+@-moz-document url-prefix("https://www.youtube.com/watch") {
+    /* Light mode */
+    :root:not([dark]) .ytd-channel-name {
+        color: #000000 !important;
+    }
+
+    /* Dark mode */
+    :root[dark] .ytd-channel-name {
+        color: #ffffff !important;
+    }
+}
